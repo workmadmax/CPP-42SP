@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:05:26 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/20 11:22:24 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:31:13 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,30 @@ int main (void)
 	print_status(cortinas);
 	return (0);
 };
+
+/*
+
+int main (void)
+{
+	ClapTrap	palmeiras("Palmeiras");
+	ClapTrap	cortinas("Cortinas");
+
+	std::cout << yellow << " =========================== " << reset << std::endl;
+	std::cout << yellow << " ====== TEST BE REPAIRED ==== " << reset << std::endl;
+
+	std::cout << green;
+	print_status(palmeiras);
+	std::cout << reset << std::endl;
+	palmeiras.setAttackDamage(1);
+	palmeiras.attack("Cortinas");
+	palmeiras.attack("Cortinas");
+	palmeiras.attack("Cortinas");
+	std::cout << std::endl;
+	std::cout << green;
+	print_status(palmeiras);
+	std::cout << reset << std::endl;
+	palmeiras.beRepaired(10);
+	std::cout << blue;
+	print_status(palmeiras);
+	std::cout << reset << std::endl;
+};*/
