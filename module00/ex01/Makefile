@@ -5,7 +5,7 @@ SRCS					= main.cpp PhoneBook.cpp Contact.cpp
 CC						= c++
 FLAGS					= -Wall -Wextra -Werror -std=c++98
 
-OBJS					= $(SRC:.c=.o)
+OBJS					= $(SRCS:.cpp=.o)
 
 $(NAME):				$(OBJS)
 							$(CC) $(FLAGS) $(SRCS) -o $(NAME)
@@ -16,7 +16,7 @@ all:					$(NAME) $(OBJS)
 							$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-						rm -f $(NAME)
+						rm -f $(NAME) $(OBJS)
 
 fclean:					clean
 
