@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:17:49 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/21 18:58:53 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:00:29 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::~Contact()
 {
 };
 
-// getters
+// getters methods
 
 std::string Contact::get_first_name() const
 {
@@ -47,7 +47,7 @@ std::string Contact::get_darkest_secret() const
 	return (this->_darkest_secret);
 };
 
-// setters
+// setters methods
 
 /// @brief The function sets the first name of the contact.
 /// @param first_name The first name of the contact.

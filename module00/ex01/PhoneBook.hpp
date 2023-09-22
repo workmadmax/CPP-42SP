@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:36:17 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/20 19:55:31 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/09/22 09:57:09 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <vector>
+# include "Contact.hpp"
+
+# define MAX_CONTACT 8
 
 class Contact;
 
@@ -22,26 +25,19 @@ class PhoneBook
 {
 public:
 	PhoneBook();
+	~PhoneBook();
 
-	// add new contact to the list
-	void addContact(const Contact& contact);
-
-	// show all contacts
-	std::string displayContacts() const;
-
-	// get contact by index
-	Contact getContact(int index) const;
+	void	addContact();
+	void	searchContact();
+	void	showContact();
+	void	showMenu();
 
 	
-
-
 private:
-	// format column to display 10 characters
-	std::string formatColumn(const std::string& str) const;
+	int		_index;
+	Contact _contacts[8];
+	
 
-	std::vector<Contact> contacts;
-	int contactCount;
-	int	currentIndex;	
 };
 
 #endif
