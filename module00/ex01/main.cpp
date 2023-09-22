@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:30:39 by madmax42          #+#    #+#             */
-/*   Updated: 2023/09/22 11:03:07 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:48:41 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	main(void)
 	std::cout << "> ";
 	while (std::cin.good() && getline(std::cin, input))
 	{
-		if (input == "ADD")
+		if (input == "ADD" || input == "1")
 			phonebook.addContact();
-		else if (input == "SEARCH")
+		else if (input == "SEARCH" || input == "2")
 			phonebook.searchContact();
-		else if (input == "EXIT")
+		else if (input == "EXIT" || input == "3")
 			break ;
 		else
 			std::cout << "INVALID INPUT: " << input << std::endl;

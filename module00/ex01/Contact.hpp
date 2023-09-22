@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:28:31 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/21 18:48:53 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:44:46 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include <cstring>
 # include <iomanip>
-
+# include <cstdlib>
 
 class Contact
 {
