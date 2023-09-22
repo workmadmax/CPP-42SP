@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:36:17 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/22 09:57:09 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:03:55 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 	void	addContact();
 	void	searchContact();
-	void	showContact();
+	void	showContact() const;
 	void	showMenu();
 
 	
