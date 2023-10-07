@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:36:17 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/22 11:03:55 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/07 11:05:57 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	
 private:
 	int		_index;
-	Contact _contacts[8];
+	Contact _contacts[MAX_CONTACT];
 	
 
 };

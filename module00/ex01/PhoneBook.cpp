@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:49:38 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/22 10:28:17 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/07 11:48:55 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 PhoneBook::PhoneBook()
 {
 	this->_index = 0;
-	std::cout << "PhoneBook constructor ..." << std::endl;
-	
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "PhoneBook destructor ..." << std::endl;	
+	std::cout << "\033[31mPhoneBook destructor ...\033[0m" << std::endl;	
 }
 
 void	PhoneBook::addContact()
@@ -107,8 +105,12 @@ void	PhoneBook::addContact()
 void	PhoneBook::searchContact()
 {
 	int	index = 0;
-	
 	std::string input;
+	
+	if (_index == 0) {
+		std::cout << "PhoneBook is empty!" << std::endl;
+		return ;
+	}
 	showContact();
 	std::cout << "Enter index contact: " << std::endl;
 	std::cout << "> ";
@@ -116,6 +118,8 @@ void	PhoneBook::searchContact()
 	index = std::atoi(input.c_str());
 	if (std::cin.fail() || (index < 0) || (index > 7) || input.length() > 1)
 		std::cout << "INVALID INPUT: index not valid!" << std::endl;
+	else if (index >= _index)
+		std::cout << "Contact is empty!" << std::endl;
 	else
 	{
 		std::cout << "First Name: " << _contacts[index].get_first_name() << std::endl;

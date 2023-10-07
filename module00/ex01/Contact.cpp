@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:17:49 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/09/21 19:00:29 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/07 11:39:22 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ int Contact::set_last_name(std::string last_name)
 				return (1);
 		}
 	}
+	if (last_name.length() > 10)
+	{
+		last_name[9] = '.';
+		last_name.erase(10, last_name.length() - 10);
+	}
 	this->_last_name = last_name;
 	return (0);
 };
@@ -132,11 +137,8 @@ int	Contact::set_phone_number(std::string phone_number)
 		return (1);
 	for (size_t i = 0; i < phone_number.size(); i++)
 	{
-		if (!isdigit(phone_number[i]))
-		{
-			if (isspace(phone_number[i]))
-				return (1);
-		}
+		if (!std::isdigit(phone_number[i]))
+			return (1);
 	}
 	if (phone_number.length() > 10)
 	{

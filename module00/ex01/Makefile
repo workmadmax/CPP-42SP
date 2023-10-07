@@ -1,26 +1,39 @@
-NAME					= phonebook
+NAME = phonebook
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
+CC = c++ 
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+OBJS = $(SRCS:.cpp=.o)
 
-SRCS					= main.cpp PhoneBook.cpp Contact.cpp
+# Define as cores
+RED = $(shell tput -Txterm setaf 1)
+GREEN = $(shell tput -Txterm setaf 2)
+YELLOW = $(shell tput -Txterm setaf 3)
+RESET = $(shell tput -Txterm sgr0)
 
-CC						= c++
-FLAGS					= -Wall -Wextra -Werror -std=c++98
+$(NAME): $(OBJS)
+		@echo "$(YELLOW)Linking...$(RESET)"
+		$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+		@echo "$(GREEN)Done!$(RESET)"
 
-OBJS					= $(SRCS:.cpp=.o)
+%.o: %.cpp
+		@echo "$(YELLOW)Compiling $<...$(RESET)"
+		   $(CC) $(FLAGS) -c $< -o $@
+		@echo "$(GREEN)Done!$(RESET)"
 
-$(NAME):				$(OBJS)
-							$(CC) $(FLAGS) $(SRCS) -o $(NAME)
-
-all:					$(NAME) $(OBJS)
-
-%.o:					%.c
-							$(CC) $(FLAGS) -c $< -o $@
+all: $(NAME) $(OBJS)
 
 clean:
-						rm -f $(OBJS)
+		@echo "$(YELLOW)Cleaning...$(RESET)"
+		rm -f $(OBJS)
+		@echo "$(GREEN)Done!$(RESET)"
 
-fclean:					clean
-						rm -f $(NAME)
+fclean: clean
+		@echo "$(YELLOW)Full cleaning...$(RESET)"
+		rm -f $(NAME)
+		@echo "$(GREEN)Done!$(RESET)"
 
-re:						fclean all
+re: fclean all
 
-.PHONY:					all clean fclean re
+
+
+.PHONY: all clean fclean re
