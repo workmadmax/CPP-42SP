@@ -6,12 +6,14 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 10:57:25 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/01 11:04:07 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/08 12:18:45 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME						= zombie
-SRCS						= main.cpp
+SRCS						= main.cpp \
+								Zombie.cpp \
+								
 CC							= c++ 
 FLAGS						= -Wall -Wextra -Werror -std=c++98 -g3
 OBJS						= $(SRCS:.cpp=.o)
@@ -24,7 +26,7 @@ RESET						= $(shell tput -Txterm sgr0)
 
 $(NAME): 					$(OBJS)
 								@echo "$(YELLOW)Linking...$(RESET)"
-								$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+								$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 								@echo "$(GREEN)Done!$(RESET)"
 
 %.o:						%.cpp
@@ -39,7 +41,7 @@ clean:
 								rm -f $(OBJS)
 								@echo "$(GREEN)Done!$(RESET)"
 
-fclean:						clean
+fclean: clean
 								@echo "$(YELLOW)Full cleaning...$(RESET)"
 								rm -f $(NAME)
 								@echo "$(GREEN)Done!$(RESET)"
