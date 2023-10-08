@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 11:10:14 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/08 12:05:02 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/08 12:24:24 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Zombie::Zombie(std::string name) {
 // Destructor
 Zombie::~Zombie() {
 	std::cout << RED << "Zombie destroyed" << std::endl;
+	std::cout << RESET;
 };
 
 //getters
