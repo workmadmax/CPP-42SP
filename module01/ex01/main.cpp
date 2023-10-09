@@ -6,13 +6,11 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 15:00:52 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/08 15:27:17 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/09 10:08:02 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-
 
 int	main(void)
 {
@@ -21,7 +19,9 @@ int	main(void)
 	zombie->announce();
 	delete zombie;
 	randomChump("Bob");
-	zombie = zombieHorde(5, "Max");
+	std::cout << "------------------ horde zombie -------------------" << std::endl;
+	zombie = zombieHorde(5, "");
+	std::cout << "---------------- free space -------------------" << std::endl;
 	delete[] zombie;
 	return (0);
 }
