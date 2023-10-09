@@ -6,13 +6,15 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/01 10:57:25 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/08 12:18:45 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/09 10:14:04 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME						= zombie
 SRCS						= main.cpp \
 								Zombie.cpp \
+								newZombie.cpp \
+								randomChump.cpp
 								
 CC							= c++ 
 FLAGS						= -Wall -Wextra -Werror -std=c++98 -g3

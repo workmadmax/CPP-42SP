@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 11:10:14 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/08 12:24:24 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/09 10:13:40 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,4 @@ std::string Zombie::setName(std::string name) {
 // methods functions
 void	Zombie::announce(void) {
 	std::cout << BLUE << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-};
-
-
-/**
- * @class Zombie
- * A class representing a zombie entity.
- * Zombies have a name and can announce themselves.
- */
-Zombie* newZombie(std::string name) {
-	Zombie *zombie = new Zombie(name);
-	return (zombie);
-};
-
-
-/**
- * @brief Creates a new Zombie instance with the given name and calls announce method.
- * 
- * @param name The name of the Zombie.
- */
-void	randomChump(std::string name) {
-	Zombie zombie(name);
-	zombie.announce();
 };
