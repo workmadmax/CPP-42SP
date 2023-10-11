@@ -6,7 +6,7 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/09 16:54:09 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/09 16:54:34 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/10 11:55:04 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@
 NAME = replace
 
 SRCS = main.cpp \
+		FileReplacer.cpp
 		
 
 OBJS = $(SRCS:.cpp=.o)
