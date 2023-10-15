@@ -6,11 +6,11 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 10:36:08 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/14 11:05:23 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/15 12:17:16 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						= ex00
+NAME						= Fixed
 
 INCLUDES					= -I./includes
 
@@ -18,7 +18,8 @@ CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3
 
 VPATH						= ./srcs
-SRCS						= main.cpp
+SRCS						= main.cpp \
+								Fixed.cpp
 
 OBJS_DIR					= objs
 OBJS						= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
