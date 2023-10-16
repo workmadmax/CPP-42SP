@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 11:12:42 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/15 12:08:36 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:01:13 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << blue << "setRawBits member function called" << std::endl;
 	std::cout << reset;
-	_value = raw;
+	this->_value = raw;
 }
