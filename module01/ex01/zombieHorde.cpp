@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:20:32 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/09 10:21:58 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:45:58 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Zombie* zombieHorde(int N, std::string name)
 	{
 		
 		zombies[i].setName(getRandomName(name));
-		zombies[i].announce();
+		//zombies[i].announce();
 	}
 	std::cout << GREEN << "Zombie horde created" << RESET << std::endl;
 	return (zombies);

@@ -6,11 +6,11 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 10:36:08 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/15 12:17:16 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/16 09:55:30 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						= Fixed
+NAME						= Fixedintr
 
 INCLUDES					= -I./includes
 
