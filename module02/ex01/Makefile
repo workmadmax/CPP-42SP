@@ -5,14 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/14 10:36:08 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/16 10:42:51 by madmax42         ###   ########.fr        #
+#    Created: 2023/10/16 10:04:55 by madmax42          #+#    #+#              #
+#    Updated: 2023/10/16 12:54:25 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						= Fixed
-
-INCLUDES					= -I./includes
+NAME						= Fixedintr
 
 CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3
@@ -28,7 +26,7 @@ RM							= rm -f
 MKDIR						= mkdir -p
 
 $(OBJS_DIR)/%.o: %.cpp
-							$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+							$(CC) $(CFLAGS) -c $< -o $@
 
 all:						$(NAME)
 
