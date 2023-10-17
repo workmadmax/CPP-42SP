@@ -6,11 +6,11 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/16 10:04:55 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/16 13:20:12 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/17 11:26:43 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						= ex02
+NAME						= Fixed_operators
 
 CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3
