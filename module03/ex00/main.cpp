@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:05:26 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/20 15:31:13 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:20:06 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ static void		print_status(ClapTrap &claptrap)
 
 int main (void)
 {
+	ClapTrap	defaultConstructor;
 	ClapTrap	palmeiras("Palmeiras");
 	ClapTrap	cortinas("Cortinas");
 
-
+	// mini battle
+	std::cout << GRAY << " ==== mini battle ===== " << RESET << std::endl;
 	while (true)
 	{
 		palmeiras.attack("Cortinas");
@@ -39,15 +41,20 @@ int main (void)
 			break ;
 		}
 	}
-	
+	// test energy attack
+	std::cout << GRAY << " ========== test energy attack =============== " << RESET << std::endl;
 	palmeiras.setEnergyPoints(0);
 	palmeiras.attack("Cortinas");
 
 	palmeiras.setEnergyPoints(10);
 	palmeiras.attack("Cortinas");
+	// test hit point attack
+	std::cout << GRAY << " ========== test hit points attack =============== " << RESET << std::endl;
 	palmeiras.setHitPoints(0);
 	palmeiras.attack("Cortinas");
 	
+	// test be repaired
+	std::cout << GRAY << " ========== test be repaired  =============== " << RESET << std::endl;
 	print_status(cortinas);
 	cortinas.beRepaired(10);
 	palmeiras.setHitPoints(2);
@@ -59,6 +66,9 @@ int main (void)
 	print_status(cortinas);
 	return (0);
 };
+
+
+
 
 /*
 

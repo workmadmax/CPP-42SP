@@ -6,13 +6,21 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 09:55:40 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/26 10:07:30 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:01:57 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+# define GREEN "\033[32m"
+# define RED "\033[31m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define RESET "\033[0m"
+# define ORANGE "\033[38;5;208m"
+# define GRAY "\033[38;5;246m"
 
 class ClapTrap
 {

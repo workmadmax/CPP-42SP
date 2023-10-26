@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:44:33 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/26 10:46:39 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:20:55 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,23 @@
 
 int main (void)
 {
-	FragTrap	robot("R2D2");
+	FragTrap fragTrap; // default constructor
+	FragTrap fragTrap2("Bender"); // name constructor
 
-	robot.attack("C3PO");
-	robot.takeDamage(5);
-	robot.beRepaired(10);
-	robot.highFivesGuys();
+	// test methods functions highFivesGuys
+	fragTrap.highFivesGuys();
+	fragTrap2.highFivesGuys();
 
-	// test constructor calls
-	std::cout << "-------- Constructor calls --------" << std::endl;
-	FragTrap	robot2;
+	// test methods functions attack
+	fragTrap.attack("Bender");
+	fragTrap2.takeDamage(20);
+	fragTrap2.beRepaired(10);
+
+	// polimorfism
+
+	ClapTrap *clapTrap = new FragTrap("Clappy");
+	clapTrap->attack("Bender");
+	delete clapTrap;
+
 	return (0);
 }

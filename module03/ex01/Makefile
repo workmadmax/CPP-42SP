@@ -6,13 +6,13 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 11:27:19 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/20 15:30:35 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/26 10:58:25 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-NAME						= clap_trap
+NAME						= scav_trap
 
 CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3

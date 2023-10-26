@@ -6,31 +6,39 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:34:10 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/26 10:38:35 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:03:29 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("default")
+FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "FragTrap default contructor called" << std::endl;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	std::cout << GREEN << "Default FragTrap contructor called" << RESET << std::endl;
 };
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap name contructor called" << std::endl;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	std::cout << GREEN << "FragTrap " << this->_name << " contructor called" << RESET << std::endl;
+
 };
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
-	std::cout << "FragTrap copy contructor called" << std::endl;
+	std::cout << GREEN << "FragTrap copy contructor called" << RESET << std::endl;
 	*this = copy;
+
 };
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << RED << "FragTrap destructor called" << RESET << std::endl;
 };
 
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
@@ -48,5 +56,5 @@ FragTrap	&FragTrap::operator=(const FragTrap &copy)
 
 void		FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->_name << ": HighFivesGuys!" << std::endl;
+	std::cout << BLUE << "FragTrap " << this->_name << ": HighFivesGuys!" << RESET << std::endl;
 };
