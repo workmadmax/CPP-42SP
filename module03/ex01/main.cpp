@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:54:54 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/26 11:44:28 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/27 08:31:40 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ static void print_status(ClapTrap &claptrap)
 
 static void		battle(ScavTrap &scavTrap, ClapTrap &clapTrap)
 {
-	clapTrap.setAttackDamage(1);
-	while (clapTrap.getEnergyPoints() > 0 && scavTrap.getHitPoints() > 0)
+	scavTrap.setAttackDamage(1);
+	while (scavTrap.getEnergyPoints() > 0 && clapTrap.getHitPoints() > 0)
 	{
-		clapTrap.attack(scavTrap.getName());
-		scavTrap.takeDamage(clapTrap.getAttackDamage());
+		scavTrap.attack(scavTrap.getName());
+		clapTrap.takeDamage(scavTrap.getAttackDamage());
 	}
-	std::cout << GRAY << "status after battle" << RESET << std::endl;
+	std::cout << GRAY << "------ status after battle ------" << RESET << std::endl;
 	print_status(clapTrap);
 	print_status(scavTrap);
 };
@@ -61,8 +61,8 @@ static void		battle(ScavTrap &scavTrap, ClapTrap &clapTrap)
 int	main (void)
 {
 	ScavTrap	trikas;
-	ScavTrap	cortinas("cortinas");
-	ClapTrap	palmeiras("palmeiras");
+	ScavTrap	palmeiras("palmeiras");
+	ClapTrap	cortinas("cortinas");
 
 	std::cout << GRAY << "=========== trikas ==========" << RESET << std::endl;
 	trikas.setName("trikas");
@@ -79,6 +79,13 @@ int	main (void)
 
 	// test battle
 	std::cout << GRAY << "=========== mini battle ==========" << RESET << std::endl;
-	battle(cortinas, palmeiras);
+	battle(palmeiras, cortinas);
+
+    std::cout << GRAY << "=========== test heritage ==========" << RESET << std::endl;
+    palmeiras.setAttackDamage(2);
+    palmeiras.setEnergyPoints(7);
+    palmeiras.setHitPoints(3);
+    palmeiras.setName("PALMEIRAS");
+    print_status(palmeiras);
 
 };
