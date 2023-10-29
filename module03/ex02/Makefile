@@ -6,7 +6,7 @@
 #    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 10:30:00 by madmax42          #+#    #+#              #
-#    Updated: 2023/10/26 10:31:01 by madmax42         ###   ########.fr        #
+#    Updated: 2023/10/27 09:26:08 by madmax42         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ VPATH						= ./srcs
 SRCS						= main.cpp \
 								ClapTrap.cpp \
 								FragTrap.cpp \
+								ScavTrap.cpp \
 
 OBJS_DIR					= objs
 OBJS						= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))

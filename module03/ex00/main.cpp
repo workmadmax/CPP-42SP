@@ -6,7 +6,7 @@
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:05:26 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/27 09:14:04 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:34:54 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ int main (void)
 	std::cout << GRAY << " ========== test hit points attack =============== " << RESET << std::endl;
 	palmeiras.setHitPoints(0);
 	palmeiras.attack("Cortinas");
+
+	// overlord operator
+	std::cout << GRAY << " ========== overlord operator =============== " << RESET << std::endl;
+	defaultConstructor = palmeiras;
+	print_status(defaultConstructor);
 	
 	// test be repaired
 	std::cout << GRAY << " ========== test be repaired  =============== " << RESET << std::endl;
