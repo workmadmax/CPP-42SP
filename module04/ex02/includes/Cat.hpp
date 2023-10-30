@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 16:24:17 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/29 19:20:37 by madmax42         ###   ########.fr       */
+/*   Created: 2023/10/29 19:21:20 by madmax42          #+#    #+#             */
+/*   Updated: 2023/10/29 19:34:53 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Brain
+class Cat : public AAnimal
 {
 private:
-	std::string _ideas[100];
+	Brain *_brain;
 
 public:
-	Brain(void);
-	Brain(const Brain &copy);
-	virtual ~Brain();
+	Cat(void);
+	Cat(const Cat &copy);
+	virtual ~Cat();
 
-	Brain &operator=(const Brain &copy);
+	Cat	&operator=(const Cat &copy);
+
+	void	makeSound(void) const;
 };

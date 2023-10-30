@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 16:24:17 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/29 19:20:37 by madmax42         ###   ########.fr       */
+/*   Created: 2023/10/29 19:29:46 by madmax42          #+#    #+#             */
+/*   Updated: 2023/10/29 19:37:29 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Brain
+int	main (void)
 {
-private:
-	std::string _ideas[100];
+	AAnimal	*animals[10];
 
-public:
-	Brain(void);
-	Brain(const Brain &copy);
-	virtual ~Brain();
+	for (int i = 0; i < 10; i++) {
+		if (i % 2 == 0)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	// delete all animals
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
 
-	Brain &operator=(const Brain &copy);
-};
+}

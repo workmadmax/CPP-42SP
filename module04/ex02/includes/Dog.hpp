@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 16:24:17 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/29 19:20:37 by madmax42         ###   ########.fr       */
+/*   Created: 2023/10/29 19:22:01 by madmax42          #+#    #+#             */
+/*   Updated: 2023/10/29 19:34:56 by madmax42         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Brain
+class Dog : public AAnimal
 {
 private:
-	std::string _ideas[100];
+	Brain *_brain;
 
 public:
-	Brain(void);
-	Brain(const Brain &copy);
-	virtual ~Brain();
+	Dog(void);
+	Dog(const Dog &copy);
+	virtual ~Dog();
 
-	Brain &operator=(const Brain &copy);
+	Dog	&operator=(const Dog &copy);
+
+	void	makeSound(void) const;	
 };
