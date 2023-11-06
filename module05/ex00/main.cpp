@@ -14,7 +14,6 @@
 
 static void testIncrementGrade( Bureaucrat &bureaucrat )
 {
-	std::cout << "entrou aqui " << std::endl;
 	try {
 		while (bureaucrat.getGrade()) {
 			if ( bureaucrat.getGrade() == 150 )
@@ -44,34 +43,73 @@ static void	testDecrementGrade( Bureaucrat &bureaucrat )
 	}
 };
 
+static void	testAssignationOperator( Bureaucrat &bureaucrat )
+{
+	try {
+		Bureaucrat copy;
+		copy = bureaucrat;
+		std::cout << "Copy name: " << copy.getName() << std::endl;
+		std::cout << "Copy grade: " << copy.getGrade() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+};
+
+static void	testCreateException( void )
+{
+	try {
+		Bureaucrat test("marvin", 0);
+		std::cout << "test name: " << test.getName() << std::endl;
+		std::cout << "test grade: " << test.getGrade() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		Bureaucrat test("marvin", 151);
+		std::cout << "test name: " << test.getName() << std::endl;
+		std::cout << "test grade: " << test.getGrade() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+};
+
+static void testOperatorOverload( void )
+{
+	Bureaucrat test("marvin", 1);
+	std::cout << test;
+	test.incrementGrade();
+	std::cout << test;
+	test.decrementGrade();
+	std::cout << test;
+};
+
 int main (void)
 {
+	std::cout << GREY << "================================" << std::endl;
+	std::cout << GREY << "test increment grade: " << std::endl;
+	Bureaucrat test("MAX", 1);
+	testIncrementGrade(test);
 	
-	try {
-		Bureaucrat bureaucrat("mdouglas", 50);
-		std::cout << bureaucrat << std::endl;
-		bureaucrat.incrementGrade();
-		std::cout << bureaucrat << std::endl;
-		bureaucrat.decrementGrade();
-		std::cout << bureaucrat << std::endl;
-		testIncrementGrade(bureaucrat);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	std::cout << GREY << "================================" << std::endl;
+	std::cout << GREY << "test decrement grade: " << std::endl;
+	Bureaucrat test1("mdouglas", 20);
+	testDecrementGrade(test1);
 
-	try {
-		Bureaucrat bureaucrat("MAX", 20);
-		std::cout << bureaucrat << std::endl;
-		bureaucrat.incrementGrade();
-		std::cout << bureaucrat << std::endl;
-		bureaucrat.decrementGrade();
-		std::cout << bureaucrat << std::endl;
-		testDecrementGrade(bureaucrat);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	
+	std::cout << GREY << "================================" << std::endl;
+	std::cout << GREY << "test assignation operator: " << std::endl;
+	Bureaucrat testCopy;
+	testAssignationOperator(testCopy);
+
+	std::cout << GREY << "================================" << std::endl;
+	std::cout << GREY << "test create exception: " << RESET << std::endl;
+	testCreateException();
+
+	std::cout << GREY << "================================" << std::endl;
+	std::cout << GREY << "test operator overload: " << RESET << std::endl;
+	testOperatorOverload();
+
 	return (0);
-}
+};

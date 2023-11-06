@@ -15,17 +15,17 @@
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << GREEN << "Default constructor called" << std::endl << RESET;
 };
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << GREEN << "Copy constructor called" << RESET << std::endl;
 };
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Parametric constructor called" << std::endl;
+	std::cout << GREEN << "Parametric constructor called" << RESET << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
@@ -36,12 +36,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << RED << "Destructor called" << RESET << std::endl;
 };
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << GREEN << "Assignation operator called" << GREEN << std::endl;
 	if (this != &copy)
 		this->_grade = copy._grade;
 	return (*this);
@@ -75,17 +75,20 @@ void				Bureaucrat::decrementGrade()
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+    static std::string message = std::string(ORANGE) + "Grade too high" + RESET;
+    return (message.c_str());
 };
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+    static std::string message = std::string(ORANGE) + "Grade too low" + RESET;
+    return (message.c_str());
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
+	out << GREEN << bureaucrat.getName() << ", bureaucrat grade "
+		<< bureaucrat.getGrade() << RESET  << std::endl;
 	return (out);
 };
 
