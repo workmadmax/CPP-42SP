@@ -28,22 +28,22 @@ private:
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
 public:
+	// canonical form
 	Form();
 	Form(const Form &copy);
 	Form(const std::string &name, int gradeToSign, int gradeToExecute);
 	~Form();
 
 	Form	&operator=(const Form &copy);
-
+	// getters
 	std::string	getName() const;
 	bool		getSigned() const;
 	int			getGradeToSign() const;
 	int			getGradeToExecute() const;
-
+	// methods
 	void		validateRange(int grade);
-
 	void		beSigned(const Bureaucrat &bureaucrat);
-
+	// exceptions
 	class GradeTooHighException : public std::exception
 	{
 		public: const char *what() const throw();

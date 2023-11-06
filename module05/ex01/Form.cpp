@@ -14,29 +14,29 @@
 
 Form::Form() : _name("form"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
-    std::cout << "Form default constructor called" << std::endl;
+    std::cout << YELLOW << "Form default constructor called" << RESET << std::endl;
 };
 
 Form::Form(const std::string &name, int gradeToSign, int gratoToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gratoToExecute)
 {
-    std::cout << "Form constructor called" << std::endl;
+    std::cout << YELLOW << "Form constructor called" << RESET << std::endl;
     validateRange(gradeToSign);
     validateRange(gratoToExecute);
 };
 
 Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
-    std::cout << "Form copy constructor called" << std::endl;
+    std::cout << YELLOW << "Form copy constructor called" << RESET << std::endl;
 };
 
 Form::~Form()
 {
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << RED << "Form destructor called" << RESET << std::endl;
 };
 
 Form	&Form::operator=(const Form &copy)
 {
-	std::cout << "Form assignation operator called" << std::endl;
+	std::cout << YELLOW << "Form assignation operator called" << RESET << std::endl;
 	if (this == &copy)
 		return (*this);
 	_signed = copy._signed;
@@ -67,22 +67,27 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->_gradeToSign) {
 		this->_signed = true;
-		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
+		std::cout << BLUE << bureaucrat.getName() << " signed "
+		<< this->_name << RESET << std::endl;
 	}
 	else {
-		std::cout << bureaucrat.getName() << " cannot sign " << this->_name << " because ";
+		std::cout << ORANGE << bureaucrat.getName() << " cannot sign "
+			<< this->_name << " because ";
 		throw Form::GradeTooLowException();
+		std::cout << RESET << std::endl;
 	}
 };
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Exception: Grade too high");
+	static std::string message = std::string(ORANGE) + "Exception: Grade too high!" + RESET;
+	return (message.c_str());
 };
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("Exception: Grade too low");
+	static std::string message = std::string(ORANGE) + "Exception: Grade too low!" + RESET;
+	return (message.c_str());
 };
 
 void	Form::validateRange(int grade)
