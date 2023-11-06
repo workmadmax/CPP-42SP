@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Burecraut.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:00:46 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/01 17:49:05 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:49:33 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include <exception>
 
 #include "AForm.hpp"
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define ORANGE "\033[0;38;5;208m"
+# define GREY "\033[0;38;5;246m"
+# define RESET "\033[0m"
 
 class AForm;
 
@@ -35,8 +43,8 @@ public:
 	Bureaucrat	&operator=(const Bureaucrat &copy);
 
 	// getters
-	std::string	getName() const;
-	int			getGrade() const;
+	std::string const	getName() const;
+	int					getGrade() const;
 
 	// methods
 	void		incrementGrade();

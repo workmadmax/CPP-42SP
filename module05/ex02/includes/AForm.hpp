@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:03:18 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/04 10:39:30 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:45:42 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@
 #include <ctime>
 
 #include "Bureaucrat.hpp"
-
-#define low 1
-#define high 150
 
 class Bureaucrat;
 

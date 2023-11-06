@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   testsForms.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 10:29:51 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/06 20:15:37 by mdouglas         ###   ########.fr       */
+/*   Created: 2023/11/06 19:27:30 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/06 20:02:00 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
+
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "testsForms.hpp"
 
-int main (void)
-{
-	allTestsAForms();
-	return (0);
-}
+
+void 			testPresidentialPardon(void);
+void    		testShrubberyCreationForm(void);
+void			testRobotomyRequestForm(void);
+void			allTestsAForms(void);
+
+// test execute form errors
+
+void			testHighAFormExecuteFormError(void);

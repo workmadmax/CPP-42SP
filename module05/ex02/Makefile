@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
+#    By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/28 16:15:11 by madmax42          #+#    #+#              #
-#    Updated: 2023/11/04 10:36:54 by madmax42         ###   ########.fr        #
+#    Updated: 2023/11/06 20:17:06 by mdouglas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME						= form
+NAME						= Aform
 
 CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3
@@ -24,7 +24,8 @@ SRCS						= main.cpp \
 								Bureaucrat.cpp \
 								ShrubberyCreationForm.cpp \
 								RobotomyRequestForm.cpp \
-								PresidentialPardonForm.cpp
+								PresidentialPardonForm.cpp \
+								testsForms.cpp \
 								
 OBJS_DIR					= objs
 OBJS						= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))

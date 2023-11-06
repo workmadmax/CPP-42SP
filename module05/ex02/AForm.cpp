@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:14:58 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/01 17:37:23 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:44:51 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("AForm"), _target("none"), _signed(false), _gradeToSign(high), _gradeToExecute(high)
+AForm::AForm()
+	: _name("AForm"), _target("none"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
 	std::cout << "AForm default constructor called" << std::endl;
 };
@@ -24,7 +25,9 @@ AForm::AForm(const std::string &name, const std::string &target, int gradeToSign
 	validateRange(gradeToExecute);
 };
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _target(copy._target), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
+AForm::AForm(const AForm &copy)
+	: _name(copy._name), _target(copy._target), _signed(copy._signed),
+		_gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
 	std::cout << "AForm copy constructor called" << std::endl;
 };
@@ -102,8 +105,8 @@ void				AForm::validateExecution(const Bureaucrat &bureaucrat) const
 
 void				AForm::validateRange(int grade)
 {
-	if (grade < high) throw Bureaucrat::GradeTooHighException();
-	if (grade > low) throw Bureaucrat::GradeTooLowException();
+	if (grade < 1) throw Bureaucrat::GradeTooHighException();
+	if (grade > 150) throw Bureaucrat::GradeTooLowException();
 };
 
 const char 			*AForm::GradeTooHighException::what() const throw()
