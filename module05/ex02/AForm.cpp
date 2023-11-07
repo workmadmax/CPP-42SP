@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:14:58 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/06 19:44:51 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:14:45 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ AForm				&AForm::operator=(const AForm &copy)
 
 // getters
 
-std::string			AForm::getName() const
+const std::string			&AForm::getName() const
 {
 	return (this->_name);
 };
 
-std::string			AForm::getTarget() const
+const std::string			&AForm::getTarget() const
 {
 	return (this->_target);
 };
