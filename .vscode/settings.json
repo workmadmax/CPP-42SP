@@ -50,5 +50,7 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"map": "cpp"
-	}
+	},
+	"42header.username": "mdouglas",
+	"42header.email": "mdouglas@student.42sp.org.br"
 }

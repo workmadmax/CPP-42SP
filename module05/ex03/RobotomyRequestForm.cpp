@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:53:42 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:56:49 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/04 10:11:21 by madmax42          #+#    #+#             */
+/*   Updated: 2023/11/07 07:53:10 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,19 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned()) {
-		std::cout << "Form: " << this->getName() << " is not signed" << std::endl;
-		throw AForm::NotSignedException();
-	} else if (this->getGradeToExecute() < executor.getGrade()) {
-		std::cout << "The form can't be executed because the bureaucrat's grade is too low" << std::endl;
+		std::cout << "The form cannot be executed because its not signed" << std::endl;
+		return ;
+	}
+	else if (this->getGradeToExecute() < executor.getGrade()) {
+		std::cout << "The form cannot be executed because the grade of the executor is too low" << std::endl;
 		throw AForm::GradeTooLowException();
-	} else {
+	}
+	else
+	{
 		std::cout << "* drilling noises *" << std::endl;
 		if (rand() % 2)
 			std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
 		else
-			std::cout << this->getTarget() << " robotomization failed" << std::endl;
+			std::cout << this->getTarget() << " has not been robotomized successfully" << std::endl;
 	}
 };

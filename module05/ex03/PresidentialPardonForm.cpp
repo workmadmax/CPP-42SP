@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:57:18 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:59:14 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/01 17:52:30 by madmax42          #+#    #+#             */
+/*   Updated: 2023/11/07 07:53:03 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() :
-	AForm("PresidentialPardonForm", "none", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm()
+	: AForm("PresidentialPardonForm", "none", 25, 5)
 {
 	std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
-	AForm("PresidentialPardonForm", target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+	: AForm("PresidentialPardonForm", target, 25, 5)
 {
 	std::cout << "PresidentialPardonForm constructor called" << std::endl;
 };
@@ -48,12 +48,13 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned()) {
-		std::cout << "Form: " << this->getName() << " is not signed" << std::endl;
-		throw AForm::NotSignedException();
-	} else if (this->getGradeToExecute() < executor.getGrade()) {
-		std::cout << "The form can't be executed because the bureaucrat's grade is too low" << std::endl;
-		throw AForm::GradeTooLowException();
-	} else {
-		std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
+		std::cout << "The form cannot be executed because its not signed" << std::endl;
+		return ;
 	}
+	else if (this->getGradeToExecute() < executor.getGrade()) {
+		std::cout << "The form cannot be executed because the grade of the executor is too low" << std::endl;
+		throw AForm::GradeTooLowException();
+	}
+	else
+		std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 };

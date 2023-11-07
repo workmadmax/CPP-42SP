@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:39:14 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:39:42 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/04 10:20:36 by madmax42          #+#    #+#             */
+/*   Updated: 2023/11/07 07:54:34 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
 private:
-	RobotomyRequestForm();
+	ShrubberyCreationForm();
 public:
-	RobotomyRequestForm(const std::string &target);
-	RobotomyRequestForm(const RobotomyRequestForm &copy);
-	virtual ~RobotomyRequestForm();
+	ShrubberyCreationForm(const std::string &target);
+	ShrubberyCreationForm(const ShrubberyCreationForm &copy);
+	virtual ~ShrubberyCreationForm();
 
-	RobotomyRequestForm	&operator=(const RobotomyRequestForm &copy);
-
-	virtual void	execute(const Bureaucrat &executor) const;
+	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &copy);
+	
+	void					execute(Bureaucrat const &executor) const;
 };

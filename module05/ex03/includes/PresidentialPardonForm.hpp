@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:38:20 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:38:55 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/01 17:50:45 by madmax42          #+#    #+#             */
+/*   Updated: 2023/11/07 07:54:11 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#pragma	once
 
 #include "AForm.hpp"
 
@@ -25,5 +25,5 @@ public:
 
 	PresidentialPardonForm	&operator=(const PresidentialPardonForm &copy);
 
-	virtual void	execute(const Bureaucrat &executor) const;	
+	void	execute(Bureaucrat const &executor) const;	
 };

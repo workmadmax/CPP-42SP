@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:29:51 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/06 20:15:37 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 09:09:14 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 int main (void)
 {
+	Bureaucrat *bureaucrat = new Bureaucrat("leila", 1);
+	std::cout << bureaucrat->getName() << std::endl;
 	allTestsAForms();
 	return (0);
 }

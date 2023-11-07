@@ -3,31 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:40:49 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:52:08 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/04 10:21:53 by madmax42          #+#    #+#             */
+/*   Updated: 2023/11/07 07:53:18 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() :
-	AForm("ShrubberyCreationForm", "none", 145, 137)
+#include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm("ShrubberyCreationForm", "none", 145, 137)
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
-	AForm("ShrubberyCreationForm", target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+	: AForm("ShrubberyCreationForm", target, 145, 137)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
-};
+};	
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) :
-	AForm(copy.getName(), copy.getTarget(), copy.getGradeToSign(), copy.getGradeToExecute())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
+	: AForm(copy.getName(), copy.getTarget(), copy.getGradeToSign(), copy.getGradeToExecute())
 {
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	*this = copy;
 };
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -48,12 +51,15 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned()) {
-		std::cout << "Form: " << this->getName() << " is not signed" << std::endl;
-		throw AForm::NotSignedException();
-	} else if (this->getGradeToExecute() < executor.getGrade()) {
-		std::cout << "The form can't be executed because the bureaucrat's grade is too low" << std::endl;
+		std::cout << "The form cannot be executed because its not signed" << std::endl;
+		return ;
+	}
+	else if (this->getGradeToExecute() < executor.getGrade()) {
+		std::cout << "The form cannot be executed because the grade of the executor is too low" << std::endl;
 		throw AForm::GradeTooLowException();
-	} else {
+	}
+	else
+	{
 		std::ofstream out;
 		out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
 		

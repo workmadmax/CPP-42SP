@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:38:01 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/06 19:41:33 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 09:17:00 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ std::string const	Bureaucrat::getName() const
 	return (this->_name);
 };
 
+
 int			Bureaucrat::getGrade() const
 {
 	return (this->_grade);
@@ -95,7 +96,7 @@ void		Bureaucrat::executeForm(const AForm &form)
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	static std::string message = std::string(ORANGE) + "Grade too high" + std::string(RESET);
-	return ("Grade too high");
+	return (message.c_str());
 };
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()

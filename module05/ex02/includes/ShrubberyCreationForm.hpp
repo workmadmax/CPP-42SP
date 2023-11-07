@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:20:36 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/04 10:27:07 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/11/07 07:54:26 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
-
-#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
