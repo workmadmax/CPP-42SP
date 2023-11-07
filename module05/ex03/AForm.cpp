@@ -3,28 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:14:58 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 10:50:39 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/07 10:39:35 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/07 10:59:01 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#include "./includes/AForm.hpp"
 
-AForm::AForm() : _name("AForm"), _target("none"), _signed(false), _gradeToSign(high), _gradeToExecute(high)
+AForm::AForm()
+	: _name("default"), _signed(false), _gradeToSign(1), _gradeToExecute(1)
 {
-	std::cout << "AForm default constructor called" << std::endl;
+	std::cout << "AForm default constructor called" << std::endl;	
 };
 
-AForm::AForm(const std::string &name, const std::string &target, int gradeToSign, int gradeToExecute) : _name(name), _target(target), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm(const std::string& name, const std::string& target, int gradeToSign, int gradeToExecute)
+	: _name(name), _target(target), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-	std::cout << "AForm constructor called" << std::endl;
 	validateRange(gradeToSign);
 	validateRange(gradeToExecute);
+	std::cout << "AForm constructor called" << std::endl;
 };
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _target(copy._target), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
+AForm::AForm(const AForm &copy)
+	: _name(copy._name), _target(copy._target), _signed(copy._signed),
+	_gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
 	std::cout << "AForm copy constructor called" << std::endl;
 };
@@ -34,40 +38,42 @@ AForm::~AForm()
 	std::cout << "AForm destructor called" << std::endl;
 };
 
-AForm				&AForm::operator=(const AForm &copy)
+AForm& AForm::operator=(const AForm& copy)
 {
-	std::cout << "AForm assignation operator called" << std::endl;
-	if (this != &copy)
-		_signed = copy._signed;
+	if (this == &copy)
+		return (*this);
+	_signed = copy._signed;
 	return (*this);
 };
 
 // getters
 
-std::string			AForm::getName() const
+const std::string& AForm::getName() const
 {
 	return (this->_name);
 };
 
-std::string			AForm::getTarget() const
+const std::string& AForm::getTarget() const
 {
 	return (this->_target);
 };
 
-bool				AForm::getSigned() const
+bool AForm::getSigned() const
 {
 	return (this->_signed);
 };
 
-int					AForm::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
 	return (this->_gradeToSign);
 };
 
-int					AForm::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
 	return (this->_gradeToExecute);
 };
+
+// member functions
 
 // methods functions
 
@@ -102,8 +108,8 @@ void				AForm::validateExecution(const Bureaucrat &bureaucrat) const
 
 void				AForm::validateRange(int grade)
 {
-	if (grade < high) throw Bureaucrat::GradeTooHighException();
-	if (grade > low) throw Bureaucrat::GradeTooLowException();
+	if (grade < 1) throw Bureaucrat::GradeTooHighException();
+	if (grade > 150) throw Bureaucrat::GradeTooLowException();
 };
 
 const char 			*AForm::GradeTooHighException::what() const throw()

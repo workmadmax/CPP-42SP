@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:38:01 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/07 09:17:00 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:35:01 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 	std::cout << "Bureaucrat default constructor called" << std::endl;	
 };
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
+	std::cout << "Bureaucrat constructor called" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
@@ -95,8 +96,7 @@ void		Bureaucrat::executeForm(const AForm &form)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	static std::string message = std::string(ORANGE) + "Grade too high" + std::string(RESET);
-	return (message.c_str());
+	return ("Grade too high");
 };
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()

@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+         #
+#    By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/28 16:15:11 by madmax42          #+#    #+#              #
-#    Updated: 2023/11/05 09:28:52 by madmax42         ###   ########.fr        #
+#    Created: 2023/11/07 09:33:25 by mdouglas          #+#    #+#              #
+#    Updated: 2023/11/07 11:19:31 by mdouglas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME						= intern
 
@@ -24,7 +23,8 @@ SRCS						= main.cpp \
 								Bureaucrat.cpp \
 								ShrubberyCreationForm.cpp \
 								RobotomyRequestForm.cpp \
-								PresidentialPardonForm.cpp
+								PresidentialPardonForm.cpp \
+								Intern.cpp
 								
 OBJS_DIR					= objs
 OBJS						= $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))

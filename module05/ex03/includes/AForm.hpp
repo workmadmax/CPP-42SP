@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:29:36 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 10:50:04 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/07 10:31:14 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/07 11:46:31 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <iostream>
 #include <string>
 #include <exception>
-
 #include <cstdlib>
 #include <ctime>
 
@@ -31,39 +30,38 @@ private:
 	bool				_signed;
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
+	AForm();
 public:
 	// canonical form
-	AForm();
-	AForm(const std::string &name, const std::string &target, const int gradeToSign, const int gradeToExecute);
+	AForm(const std::string& name, const std::string& target, int gradeToSign, int gradeToExecute);
 	AForm(const AForm &copy);
 	virtual ~AForm();
 
-	AForm	&operator=(const AForm &copy);
-
+	AForm& operator=(const AForm &copy);
 	// getters
-	const std::string	&getName() const;
-	const std::string	&getTarget() const;
+	const std::string&	getName() const;
+	const std::string&	getTarget() const;
 	bool				getSigned() const;
 	int					getGradeToSign() const;
 	int					getGradeToExecute() const;
-	// methods functions
-	void				validateRange(int grade);
-	void				validateExecution(const Bureaucrat &executor) const;
+	// member functions
 	void				beSigned(const Bureaucrat &bureaucrat);
-	virtual void		execute(const Bureaucrat &executor) const = 0;
+	void				validateExecution(Bureaucrat const &executor) const;
+	void				validateRange(int grade);
+	virtual	void		execute(Bureaucrat const &executor) const = 0;
 	// exceptions
 	class GradeTooHighException : public std::exception
 	{
-		public: const char	*what() const throw();
+		public: virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
-		public: const char	*what() const throw();
+		public: virtual const char* what() const throw();
 	};
 	class NotSignedException : public std::exception
 	{
-		public: const char	*what() const throw();
+		public: virtual const char* what() const throw();
 	};
 };
 
-std::ostream	&operator<<(std::ostream &out, const AForm &aForm);
+std::ostream	&operator<<(std::ostream &out, const AForm &form);

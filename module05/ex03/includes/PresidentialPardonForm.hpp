@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:50:45 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/07 07:54:11 by mdouglas         ###   ########.fr       */
+/*   Created: 2023/11/07 10:37:30 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/07 10:37:51 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma	once
+#pragma once
 
 #include "AForm.hpp"
 

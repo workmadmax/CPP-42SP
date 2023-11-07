@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:00:46 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/07 09:14:58 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 09:30:14 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdexcept>
 #include <climits>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
@@ -27,7 +27,7 @@
 # define GREY "\033[0;38;5;246m"
 # define RESET "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -48,7 +48,8 @@ public:
 	// methods
 	void				incrementGrade();
 	void				decrementGrade();
-	void				signForm(Form &form);
+	void				signForm(AForm &form);
+	void				executeForm(AForm const &form);
 	// exceptions
 	class GradeTooHighException : public std::exception
 	{

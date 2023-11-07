@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:03:18 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/06 19:45:42 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:34:14 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 
 	AForm				&operator=(const AForm &copy);
 	// getters
-	std::string			getName() const;
+	std::string&			getName() const;
 	std::string			getTarget() const;
 	bool				getSigned() const;
 	int					getGradeToSign() const;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 09:40:03 by madmax42          #+#    #+#             */
-/*   Updated: 2023/11/05 09:40:21 by madmax42         ###   ########.fr       */
+/*   Created: 2023/11/07 10:38:43 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/07 10:38:49 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ public:
 	virtual ~ShrubberyCreationForm();
 
 	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &copy);
-
-	virtual void	execute(const Bureaucrat &executor) const;
+	
+	void					execute(Bureaucrat const &executor) const;
 };

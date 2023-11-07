@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 10:38:18 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/07 10:38:25 by mdouglas         ###   ########.fr       */
+/*   Created: 2023/11/07 11:06:08 by mdouglas          #+#    #+#             */
+/*   Updated: 2023/11/07 11:49:41 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-class RobotomyRequestForm : public AForm
+class Intern
 {
 private:
-	RobotomyRequestForm();
+	typedef struct s_forms {
+		std::string name;
+		AForm		*forms;
+	} t_forms;
 public:
-	RobotomyRequestForm(const std::string &target);
-	RobotomyRequestForm(const RobotomyRequestForm &copy);
-	virtual ~RobotomyRequestForm();
-	
-	RobotomyRequestForm	&operator=(const RobotomyRequestForm &copy);
+	Intern();
+	Intern(const Intern &copy);
+	~Intern();
 
-	void				execute(Bureaucrat const &executor) const;	
+	Intern& operator=(const Intern &copy);
+	
+	AForm*	makeForm(std::string name, std::string target);
+	
+	class FormNotFoundException : public std::exception
+	{
+		public: virtual const char* what() const throw();
+	};
 };
