@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madmax42 <madmax42@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:17:13 by madmax42          #+#    #+#             */
-/*   Updated: 2023/10/31 16:15:50 by madmax42         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:50:54 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
+
+// Path: module05/ex00/Bureaucrat.hpp
