@@ -6,11 +6,11 @@
 #    By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 21:44:35 by mdouglas          #+#    #+#              #
-#    Updated: 2023/11/08 21:45:53 by mdouglas         ###   ########.fr        #
+#    Updated: 2023/11/12 10:44:20 by mdouglas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME						= coverter
+NAME						= converter
 
 CC							= c++ -std=c++98
 CFLAGS						= -Wall -Wextra -Werror -g3

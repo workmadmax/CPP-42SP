@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:46:09 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/11 12:06:18 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/12 10:43:35 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cstdlib>
-#include <limits>
-#include <cmath>
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
+#include <climits>
+#include <cmath>
+#include <cerrno>
 
 /*
 Write a static class ScalarConverter that will contain a method "convert" takes as
@@ -47,26 +47,10 @@ class ScalarConverter
 {
 private:
 	ScalarConverter();
-	~ScalarConverter();
 	ScalarConverter(const ScalarConverter& other);
-	ScalarConverter& operator=(const ScalarConverter& other);
-
-	static void	convertChar(std::string str);
-	static void	convertInt(std::string str);
-	static void	convertFloat(std::string str);
-	static void	convertDouble(std::string str);
-	
+	ScalarConverter	&operator=(const ScalarConverter& other);
 public:
-
-	static void	convert(std::string str);
-	
-	// exceptions
-	class NonDisplayableException : public std::exception
-	{
-		public: virtual const char* what() const throw();
-	};
-	class InvalidConversionException : public std::exception
-	{
-		public: virtual const char* what() const throw();
-	};
+	~ScalarConverter();
+	static void convert(std::string input);
+	static std::string getType(std::string input);
 };
