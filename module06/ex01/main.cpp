@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 12:03:46 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/12 12:18:48 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:33:53 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 	uintptr_t	s_ptr;
 	uintptr_t	s_ptr2;
 
-	dataOne.name = "Ecole";
+	dataOne.name = "ecole";
 	dataOne.number = 42;
 
 	std::cout << "DataOne: " << dataOne.name << ", " << dataOne.number << std::endl;
