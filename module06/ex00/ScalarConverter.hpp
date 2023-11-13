@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:46:09 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/12 10:43:35 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:48:42 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,18 @@ class ScalarConverter
 {
 private:
 	ScalarConverter();
-	ScalarConverter(const ScalarConverter& other);
-	ScalarConverter	&operator=(const ScalarConverter& other);
+	ScalarConverter(const ScalarConverter &);
+	ScalarConverter	&operator=(const ScalarConverter &);
+	
+	static std::string getType(std::string input);
 public:
 	~ScalarConverter();
-	static void convert(std::string input);
-	static std::string getType(std::string input);
+	static void convert(const std::string input);
 };
+
+// helper functions
+
+void	printChar(char c);
+void	printInt(long i);
+void	printFloat(float f);
+void	printDouble(double d);
