@@ -6,7 +6,7 @@
 #    By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/15 14:17:41 by mdouglas          #+#    #+#              #
-#    Updated: 2023/11/15 14:22:28 by mdouglas         ###   ########.fr        #
+#    Updated: 2023/11/15 14:47:16 by mdouglas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,4 +41,4 @@ clean:
 fclean:						clean
 							$(RM) $(NAME)
 							
-re:							fclean all														
+re:							fclean all

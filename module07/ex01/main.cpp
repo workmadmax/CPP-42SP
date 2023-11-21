@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:49:53 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/15 15:02:32 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:44:25 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include <vector>
 #include "iter.hpp"
 
-void print(int const &i)
+
+// main for testing regua
+void print(int &i)
 {
 	std::cout << i << std::endl;
 };
