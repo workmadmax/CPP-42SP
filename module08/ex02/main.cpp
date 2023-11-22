@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:59:06 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/21 16:18:47 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:16:24 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,31 @@ void	testList ( void )
 	return ;
 }
 
+void testEmptyStackIteration()
+{
+    std::cout << "Testando iteração em uma pilha vazia..." << std::endl;
+    MutantStack<int> emptyStack;
+
+    // Tentar acessar iteradores em uma pilha vazia deve lançar uma exceção
+    try {
+        MutantStack<int>::iterator it = emptyStack.begin();
+        MutantStack<int>::iterator ite = emptyStack.end();
+
+        std::cout << "Iterando em uma pilha vazia:" << std::endl;
+        while (it != ite) {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    } catch (std::exception &e) {
+        std::cout << "Erro ao iterar em uma pilha vazia: " << e.what() << std::endl;
+    }
+}
+
 int main ( void )
 {
 	//testPDF();
-	testList();
+	//testList();
+	testEmptyStackIteration();
 	
 	return (0);
 }

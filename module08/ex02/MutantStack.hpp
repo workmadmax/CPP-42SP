@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:53:49 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/21 15:58:19 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:23:23 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@ public:
 		
 		iterator	begin()
 		{
+			if (this->c.empty())
+				throw std::logic_error("Empty stack");
 			return (this->c.begin());
 		};
 		
 		iterator	end()
 		{
+			if (this->c.empty())
+				throw std::logic_error("Empty stack");
 			return (this->c.end());
 		};
 };

@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:28:53 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/21 11:47:27 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:27:53 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ public:
 	}
 };
 
-template <typename T>
-typename T::iterator easyfind(T &container, int value)
-{
-	typename T::iterator it;
-	
-	it = std::find(container.begin(), container.end(), value);
-	if (it == container.end())
-		throw MyException();
-	return (it);
-}
 
+template <typename T>
+typename T::iterator easyfind(T &container, int value) {
+    typename T::iterator it = container.begin();
+
+    while (it != container.end()) {
+        if (*it == value) {
+            return it;
+        }
+        ++it;
+    }
+    throw MyException();
+}
