@@ -6,7 +6,7 @@
 #    By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 12:01:42 by mdouglas          #+#    #+#              #
-#    Updated: 2023/11/21 12:23:48 by mdouglas         ###   ########.fr        #
+#    Updated: 2023/11/23 16:12:46 by mdouglas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,5 +41,6 @@ clean:
 
 fclean:						clean
 							$(RM) $(NAME)
+							$(RM) -r $(OBJ_DIR)
 							
 re:							fclean all
