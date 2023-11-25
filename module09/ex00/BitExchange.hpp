@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:34:58 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/25 11:06:41 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:48:40 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,39 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <map>
 #include <string>
 #include <algorithm>
 #include <cstdlib>
+#include <vector>
 
+
+/* check input date */
+
+bool			check_format(const std::string &date);
+bool			check_year(const std::string &date);
+bool			check_month(const std::string &date);
+bool			check_day(const std::string &date);
+bool			is_valid_date(const std::string &date);
+
+
+/* check input value */
+
+std::string		is_valid_value(const std::string &value);
+void			handle_invalid_input(std::vector<std::pair<std::string, std::string> > &_vec);
+
+/* handle input */
+
+bool			handle_file(std::string file_name, std::ifstream &file);
+bool			handle_input(std::ifstream &file, std::vector<std::pair<std::string, std::string> > &_input);
+
+/* handle binary search */
+
+int				handle_binary_search(const std::string & targetDate,
+				const std::vector<std::pair<std::string, double> > & _vec);
+
+void			print_result(const std::vector<std::pair<std::string, std::string> >
+				&_vec, const std::vector<std::pair<std::string, double> > & _vecData);
+
+/* handle data base */
+
+void			handle_data_base(std::ifstream &file, std::vector<std::pair<std::string, double> > &_vData);
