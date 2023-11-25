@@ -49,7 +49,9 @@
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"list": "cpp",
+		"set": "cpp"
 	},
 	"42header.username": "mdouglas",
 	"42header.email": "mdouglas@student.42sp.org.br"

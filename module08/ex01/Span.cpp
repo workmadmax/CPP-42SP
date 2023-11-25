@@ -6,11 +6,12 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:07:06 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/21 12:23:16 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:19:01 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <string>
 
 // canonical form
 
@@ -64,16 +65,18 @@ int		Span::shortestSpan()
 {
 	if (this->_container.size() <= 1)
 		throw std::length_error("Span is empty or has only one element");
-	std::vector<int> copy = this->_container;
-	std::sort(copy.begin(), copy.end());
-	int shortest = std::numeric_limits<int>::max();
-	for (std::vector<int>::iterator it = copy.begin(); it != copy.end() - 1; it++)
+	
+	std::sort(this->_container.begin(), this->_container.end());
+	int shortSpan = std::numeric_limits<int>::max();
+	for (std::vector<int>::iterator it = this->_container.begin(); it != this->_container.end() - 1; it++)
 	{
-		if (*(it + 1) - *it < shortest)
-			shortest = *(it + 1) - *it;
+		int span = *(it + 1) - *it;
+		shortSpan = (span < shortSpan) ? span : shortSpan;
 	}
-	return (shortest);
+	return (shortSpan);
 };
+
+
 
 int		Span::longestSpan()
 {
