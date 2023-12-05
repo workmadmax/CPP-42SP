@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:58:43 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/26 13:07:02 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:11:34 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ RPN::RPN(const RPN &) {};
 
 /* member function */
 
+/**
+ * @brief Counts the number of words in the given expression.
+ * 
+ * @param expression The expression to count words from.
+ */
 void	RPN::countWords(std::string expression)
 {
 	std::stringstream 	ss(expression);
@@ -41,6 +46,15 @@ void	RPN::countWords(std::string expression)
 		wordCount++;
 };
 
+/**
+ * @brief Checks if the given string array contains valid characters.
+ * 
+ * This function checks each element of the string array and verifies if it is a single character
+ * and if it is a digit or one of the four basic arithmetic operators: +, -, *, or /.
+ * 
+ * @param stringArray The string array to be checked.
+ * @return true if all elements of the string array are valid, false otherwise.
+ */
 bool	RPN::handleCheckString(std::string *stringArray)
 {
 	std::stringstream 	ss(expression);
@@ -59,6 +73,19 @@ bool	RPN::handleCheckString(std::string *stringArray)
 	return (true);
 };
 
+/**
+ * @brief Handles the evaluation of a mathematical expression in Reverse Polish Notation (RPN).
+ * 
+ * This function takes an array of strings representing the RPN expression and evaluates it.
+ * It uses a stack to store operands and an operation stack to store operators.
+ * The function iterates through the array, performing the necessary operations
+ * based on the current element.
+ * If the expression is valid and can be evaluated successfully, the function returns true.
+ * Otherwise, it returns false.
+ * 
+ * @param arr The array of strings representing the RPN expression.
+ * @return True if the expression is valid and can be evaluated successfully, false otherwise.
+ */
 bool RPN::handlePolishNotation(std::string const *arr)
 {
     int i = 0;

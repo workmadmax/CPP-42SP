@@ -6,12 +6,26 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:48:31 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/26 13:02:16 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:07:30 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
+/* 	explicação do algoritimo 	
+	 - A calculadora RPN ela funciona empilhando os numeros e desempilhando.
+	 - Quando um operador é encontrado, ele desempilha os dois ultimos numeros.
+	 - Faz a operação e empilha o resultado.
+	 - Quando a expressão acaba, o resultado é o ultimo numero da pilha.
+	 
+	 * O algoritimo funciona da seguinte forma:
+	 - 1 - Verifica se a string é valida.
+	 - 2 - Separa a string em um array de strings.
+	 - 3 - Verifica se a string é um numero ou um operador.
+	 - 4 - Se for um numero, empilha.
+	 - 5 - Se for um operador, desempilha os dois ultimos numeros e faz a operação.
+	 
+*/
 int main(int argc, char **argv)
 {
 	if (argc != 2)
