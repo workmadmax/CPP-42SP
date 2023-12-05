@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:34:58 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/11/25 16:48:40 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:42:14 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@
 #include <algorithm>
 #include <cstdlib>
 #include <vector>
+#include <sys/stat.h>
 
 
 /* check input date */
 
-bool			check_format(const std::string &date);
-bool			check_year(const std::string &date);
-bool			check_month(const std::string &date);
-bool			check_day(const std::string &date);
+bool			check_date(const std::string &date);
 bool			is_valid_date(const std::string &date);
 
 
@@ -51,3 +49,7 @@ void			print_result(const std::vector<std::pair<std::string, std::string> >
 /* handle data base */
 
 void			handle_data_base(std::ifstream &file, std::vector<std::pair<std::string, double> > &_vData);
+
+/* handle error */
+
+void			handle_error(int argc, char **argv);
