@@ -6,24 +6,21 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:59:53 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/12/05 10:52:22 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:15:38 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "BitExchange.hpp"
-#include <vector>
-
-// usar apenas c++ std=98
 
 // handle error
 
-static void	handle_empty_file(std::ifstream &file)
+static void	handle_empty_file(std::ifstream &file, const std::string &filename)
 {
 	file.seekg(0, std::ios::end);
 	if (file.tellg() == 0)
 	{
-		std::cerr << "Error: file is empty." << std::endl;
+		std::cerr << "Error: " << RED + filename + RESET + " file is empty." << std::endl;
 		exit(1);
 	}
 	file.seekg(0, std::ios::beg);
@@ -33,23 +30,29 @@ static void	handle_permission_denied(std::ifstream &file)
 {
 	if (!file.is_open())
 	{
-		std::cerr << "Error: permission denied." << std::endl;
+		std::cerr << RED << "Error: permission denied." << RESET << std::endl;
 		exit(1);
 	}
 };
 
-static bool	is_file(const char *path)
+static bool	is_file(const char *path, const std::string &filename)
 {
 	struct stat	st;
 	stat(path, &st);
-	return (S_ISREG(st.st_mode));
+	if (!S_ISREG(st.st_mode))
+	{
+		std::cerr << "Error: " << RED + filename + RESET + " is not a file." << std::endl;
+		return (false);
+	}
+	return (true);
 };
+
 
 static bool is_valid_args_format(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "Error: invalid arguments." << std::endl;
+		std::cerr << RED << "Error: invalid arguments." << RESET << std::endl;
 		std::cerr << "Usage: " << argv[0] << " <file_name>" << std::endl;
 		exit(1);
 	}
@@ -65,15 +68,12 @@ static bool is_valid_args_format(int argc, char **argv)
 void	handle_error(int argc, char **argv)
 {
 	if (!is_valid_args_format(argc, argv))
-		exit(1);
-	if (!is_file(argv[1]))
-	{
-		std::cerr << "Error: file not found." << std::endl;
-		exit(1);
-	}
+		exit(EXIT_FAILURE);
+	if (!is_file(argv[1], argv[1]))
+		exit(EXIT_FAILURE);
 	std::ifstream	file;
 	file = std::ifstream(argv[1]);
-	handle_empty_file(file);
+	handle_empty_file(file, argv[1]);
 	handle_permission_denied(file);
 };
 
@@ -83,13 +83,13 @@ int	processfile(char *argv)
 	std::ifstream file;
 	std::vector<std::pair<std::string, std::string> >	_input;
 	std::vector<std::pair<std::string, double> >		_vData;
-	if (handle_file(argv, file) == false)
+	if (handle_file(argv, file) == false) // input
 		return (EXIT_FAILURE);
 	if (handle_input(file, _input) == false)
 		return (EXIT_FAILURE);
-	handle_invalid_input(_input);
-	if (!handle_file("./data/data.csv", file))
+	if (!handle_file("./data/data.csv", file)) // data base
 		return (EXIT_FAILURE);
+	handle_invalid_input(_input);
 	handle_data_base(file, _vData);
 	print_result(_input, _vData);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:26:29 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/12/05 10:47:27 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:32:28 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ bool	handle_file(std::string file_name, std::ifstream &file)
 		std::cerr << "Error: file not found." << std::endl;
 		return (false);
 	}
-	file.seekg(0, std::ios::end);
-	if (file.tellg() == 0)
-	{
-		std::cerr << "Error: file is empty." << std::endl;
-		return (false);
-	}
-	file.seekg(0, std::ios::beg);
 	return (true);
 };
 
@@ -71,8 +64,6 @@ bool	handle_input(std::ifstream &file, std::vector<std::pair<std::string, std::s
 		else
 			_input.push_back(std::make_pair(line, "invalid"));
 	}
-	if (_input.size() == 0)
-		return (false);
 	file.close();
 	return (true);
 };
@@ -310,8 +301,8 @@ void	handle_data_base(std::ifstream &file, std::vector<std::pair<std::string, do
 		{
 			date = line.substr(0, pos);
 			value = line.substr(pos + 1);
-			btc = std::strtod(value.c_str(), NULL);
-			_vData.push_back(std::make_pair(date, btc));
+			btc = std::strtod(value.c_str(), NULL); // converte for double value
+			_vData.push_back(std::make_pair(date, btc)); // create pair string (date, value)
 		}
 	}
 	file.close();

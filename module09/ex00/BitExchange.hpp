@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:34:58 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/12/05 10:42:14 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:14:26 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 #include <cstdlib>
 #include <vector>
 #include <sys/stat.h>
+
+#define RESET "\033[0m"
+#define RED "\033[31m"
 
 
 /* check input date */
