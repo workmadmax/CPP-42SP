@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 09:26:29 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/12/10 10:32:28 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:51:49 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
  * @param file The ifstream object to open the file with.
  * @return True if the file was successfully opened, false otherwise.
  */
-bool	handle_file(std::string file_name, std::ifstream &file)
+bool	handle_file(std::string filename, std::ifstream &file)
 {
-	file.open(file_name);
+	file.open(filename.c_str());
 	if (!file.is_open())
 	{
 		std::cerr << "Error: file not found." << std::endl;

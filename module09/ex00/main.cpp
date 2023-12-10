@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:59:53 by mdouglas          #+#    #+#             */
-/*   Updated: 2023/12/09 11:15:38 by mdouglas         ###   ########.fr       */
+/*   Updated: 2023/12/10 10:54:03 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,17 @@ static bool is_valid_args_format(int argc, char **argv)
  */
 void	handle_error(int argc, char **argv)
 {
+	std::string filename;
+
 	if (!is_valid_args_format(argc, argv))
 		exit(EXIT_FAILURE);
 	if (!is_file(argv[1], argv[1]))
 		exit(EXIT_FAILURE);
-	std::ifstream	file;
-	file = std::ifstream(argv[1]);
+	std::ifstream	file(argv[1]);
 	handle_empty_file(file, argv[1]);
 	handle_permission_denied(file);
 };
+
 
 
 int	processfile(char *argv)
